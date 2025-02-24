@@ -1,7 +1,7 @@
 import Booking from "../../models/bookingModel";
 import { v4 as uuidv4 } from "uuid";
 import { BookingProps } from "../types/props";
-import { bookingFindOne, bookingFind } from "../../dao/booking.dao";
+import { bookingFindOne, bookingFind, bookingFindAll } from "../../dao/booking.dao";
 import { format, parse } from "date-fns";
 export const createBookingResolver = async (
   parent: any,
@@ -48,7 +48,19 @@ export const listAllbookingByStatusDateResolver = async (
   args: Partial<BookingProps>
 ) => {
   let { arrivalDate, status } = args;
-  return await bookingFind({ status: status, arrivalDate: arrivalDate });
+  let res = await bookingFindAll();
+  if (arrivalDate != ''){
+    res = res.filter((e) => {
+      return  e.arrivalDate == arrivalDate
+    });
+  }
+  if (status != ''){
+    res = res.filter((e) => {
+      return e.status == status
+    });
+  }
+
+  return res
 };
 
 export const listAllBookingByContactNumberResolver = async (

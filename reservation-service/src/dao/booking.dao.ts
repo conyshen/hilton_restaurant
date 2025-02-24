@@ -19,3 +19,7 @@ export const bookingFindOne = async (args: Partial<BookingProps>) => {
 export const bookingFind = async (args?: Partial<BookingProps>) => {
   return args ? await Booking.find(args) : await Booking.find();
 };
+
+export const bookingFindAll = async() => {
+  return await Booking.find();
+}
