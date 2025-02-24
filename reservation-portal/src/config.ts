@@ -2,7 +2,7 @@
 interface configProps {
     reservation: {
         tableSizeMax: number,
-        tableSizeMin: number
+        tableSizeMin: number,
     }
     api:{
         makeBookingURL: string,

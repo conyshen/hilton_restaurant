@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import styled from "style-components";
-import Reservation from "./Reservation";
+import Reservation from "../pages/Reservation";
 import ReservationResult from "./ReservationResult";
 import Locations from "./Locations";
 
