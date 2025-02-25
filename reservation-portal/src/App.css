@@ -220,6 +220,7 @@ select {
     border: 1px solid #ffffff;
     color: #fff;
     background-color: rgba(1, 22, 59, 0.7);
+    margin-left: 5px;
   }
 
   button:hover {
@@ -244,4 +245,5 @@ select {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  
 }

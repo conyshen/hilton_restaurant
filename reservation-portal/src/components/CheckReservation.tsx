@@ -270,7 +270,6 @@ const CheckReservation = (props: any) => {
                     >
                       <option value="pending">pending</option>
                       <option value="confirmed">confirmed</option>
-                      <option value="completed">completed</option>
                       <option value="cancel">cancel</option>
                     </select>
                   )}
@@ -280,7 +279,7 @@ const CheckReservation = (props: any) => {
                     Update
                   </button>
                 )}
-                {startUpdateVisible && (
+                {startUpdateVisible && bookingUpdate == booking.id && (
                   <button
                     onClick={(e) => submitUpdate(e, booking.id, booking)}
                     disabled={

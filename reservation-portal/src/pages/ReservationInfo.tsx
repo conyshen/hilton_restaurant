@@ -145,11 +145,11 @@ const ReservationInfo = () => {
   const handleClear = () => {
     setFilteredDate(null);
   };
-  const cancelUpdate = (e:any, id:string) => {
+  const cancelUpdate = (e: any, id: string) => {
     e.preventDefault();
     setStartUpdateVisible(false);
-    id = ''
-  }
+    id = "";
+  };
   return (
     <div className="reservation-info">
       <div className="filter-board">
@@ -178,7 +178,7 @@ const ReservationInfo = () => {
           </button>
         </div>
       </div>
-      <div>
+      <div className="filter-cards">
         {data &&
           data?.listAllBooking?.map((booking: any) => {
             return (
@@ -228,10 +228,18 @@ const ReservationInfo = () => {
                   Status:
                   {!startUpdateVisible && booking.status}
                   {startUpdateVisible && bookingUpdate === booking.id && (
-                    <input
-                      value={inputValueUpdate.status}
+                    <select
                       onChange={handleStatusChange}
-                    />
+                      value={
+                        inputValueUpdate.status
+                          ? inputValueUpdate.status
+                          : booking.status
+                      }
+                    >
+                      <option value="pending">pending</option>
+                      <option value="confirmed">confirmed</option>
+                      <option value="cancel">cancel</option>
+                    </select>
                   )}
                 </p>
                 {!startUpdateVisible && (
@@ -239,7 +247,7 @@ const ReservationInfo = () => {
                     Update
                   </button>
                 )}
-                {startUpdateVisible && (
+                {startUpdateVisible && bookingUpdate == booking.id && (
                   <button
                     onClick={(e) => submitUpdate(e, booking.id)}
                     disabled={
@@ -247,6 +255,16 @@ const ReservationInfo = () => {
                     }
                   >
                     Confirm Update
+                  </button>
+                )}
+                {startUpdateVisible && bookingUpdate == booking.id && (
+                  <button
+                    onClick={(e) => cancelUpdate(e, booking.id)}
+                    disabled={
+                      startUpdateVisible && bookingUpdate !== booking.id
+                    }
+                  >
+                    cancel
                   </button>
                 )}
               </div>
@@ -304,10 +322,19 @@ const ReservationInfo = () => {
                   Status:
                   {!startUpdateVisible && booking.status}
                   {startUpdateVisible && bookingUpdate === booking.id && (
-                    <input
-                      value={inputValueUpdate.status}
+                    <select
                       onChange={handleStatusChange}
-                    />
+                      value={
+                        inputValueUpdate.status
+                          ? inputValueUpdate.status
+                          : booking.status
+                      }
+                    >
+                      <option value="pending">pending</option>
+                      <option value="confirmed">confirmed</option>
+                      <option value="cancel">cancel</option>
+                      <option value="cancel">completed</option>
+                    </select>
                   )}
                 </p>
                 {!startUpdateVisible && (
@@ -315,7 +342,7 @@ const ReservationInfo = () => {
                     Update
                   </button>
                 )}
-                { startUpdateVisible && bookingUpdate == booking.id && (
+                {startUpdateVisible && bookingUpdate == booking.id && (
                   <button
                     onClick={(e) => submitUpdate(e, booking.id)}
                     disabled={
@@ -325,16 +352,16 @@ const ReservationInfo = () => {
                     Confirm Update
                   </button>
                 )}
-                { startUpdateVisible && bookingUpdate == booking.id &&
+                {startUpdateVisible && bookingUpdate == booking.id && (
                   <button
-                  onClick={(e) => cancelUpdate(e, booking.id)}
-                  disabled={
-                    startUpdateVisible && bookingUpdate !== booking.id
-                  }
-                >
-                  cancel
-                </button>
-                }
+                    onClick={(e) => cancelUpdate(e, booking.id)}
+                    disabled={
+                      startUpdateVisible && bookingUpdate !== booking.id
+                    }
+                  >
+                    cancel
+                  </button>
+                )}
               </div>
             );
           })}
