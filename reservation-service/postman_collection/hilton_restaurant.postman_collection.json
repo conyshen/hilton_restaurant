@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"query\": \"mutation createBooking($guestName: String, $tableSize: Int, $arrivalDate: String, $arrivalTime: String, $status: String, $contact: String) { createBooking(guestName: $guestName, tableSize: $tableSize, arrivalDate: $arrivalDate, arrivalTime: $arrivalTime, status: $status, contact: $contact) { id guestName tableSize arrivalDate arrivalTime status contact } }\",\n  \"variables\": {\n      \"guestName\": \"John Doe\",\n      \"contact\": \"1234567890\",\n      \"tableSize\": 10,\n      \"arrivalTime\": \"1545\", \n      \"arrivalDate\": \"2025-02-19\", \n      \"status\": \"pending\"\n    }\n}",
+					"raw": "{\n  \"query\": \"mutation createBooking($guestName: String, $tableSize: Int, $arrivalDate: String, $arrivalTime: String, $status: String, $contact: String) { createBooking(guestName: $guestName, tableSize: $tableSize, arrivalDate: $arrivalDate, arrivalTime: $arrivalTime, status: $status, contact: $contact) { id guestName tableSize arrivalDate arrivalTime status contact } }\",\n  \"variables\": \n      {\"arrivalDate\":\"26-02-2025\",\"arrivalTime\":\"11:15\",\"contact\":\"1123132\",\"guestName\":\"2wqeq\",\"status\":\"pending\",\"tableSize\":1}\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,7 +68,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"query\": \"query listAllbookingByStatusDate($arrivalDate: String, $status: String) { listAllbookingByStatusDate(arrivalDate: $arrivalDate, status: $status) { id guestName tableSize arrivalDate status contact } }\",\n    \"variables\": {\n        \"arrivalDate\": \"2025-02-20\", \n        \"status\": \"cancel\" \n    }\n}",
+					"raw": "{\n    \"query\": \"query listAllbookingByStatusDate($arrivalDate: String, $status: String) { listAllbookingByStatusDate(arrivalDate: $arrivalDate, status: $status) { id guestName tableSize arrivalDate status contact } }\",\n    \"variables\": {\n        \"arrivalDate\": \"\", \n        \"status\": \"\" \n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -126,7 +126,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"query\": \"query listAllBookingByContactNumber($guestName: String, $contact: String) { listAllBookingByContactNumber(guestName: $guestName, contact: $contact) { id guestName tableSize arrivalTime status contact } }\",\n  \"variables\": {\n    \"contact\": \"12345671\",\n    \"guestName\":\"test3\"\n  }\n}",
+					"raw": "{\n  \"query\": \"query listAllBookingByContactNumber($guestName: String, $contact: String) { listAllBookingByContactNumber(guestName: $guestName, contact: $contact) { id guestName tableSize arrivalTime status contact } }\",\n  \"variables\": {\n    \"contact\": \"1234567890\",\n    \"guestName\":\"John Doe\"\n  }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
